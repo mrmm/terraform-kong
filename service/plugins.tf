@@ -44,4 +44,8 @@ resource "kong_consumer_plugin_config" "basic_auth_config" {
 	    "password": "${element(values(var.basic_auth_user), 1)}"
 	}
 EOF
+
+  lifecycle {
+    ignore_changes = ["config_json"]
+  }
 }
